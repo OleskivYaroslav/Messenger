@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.IOException;
+
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -37,14 +37,6 @@ public class Client {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         textField = new JTextField(20);
         JButton sendButton = new JButton("send");
-        JButton refreshButton = new JButton("refresh");
-
-        refreshButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                writer.print("");
-            }
-        });
 
         sendButton.addActionListener(new Send());
 
@@ -57,8 +49,8 @@ public class Client {
         thread.start();
 
         frame.getContentPane().add(BorderLayout.CENTER, panel);
-        frame.getContentPane().add(BorderLayout.NORTH, refreshButton);
-        frame.setSize(400, 340);
+
+        frame.setSize(400, 315);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
